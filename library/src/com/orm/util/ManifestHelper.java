@@ -15,6 +15,10 @@ public class ManifestHelper {
      */
     public final static String METADATA_DATABASE = "DATABASE";
     /**
+     * Key for the preinstalled database file name (in assets) meta data.
+     */
+    public final static String METADATA_PREINSTALLED_DATABASE = "PREINSTALLED_DATABASE";
+    /**
      * Key for the database verison meta data.
      */
     public final static String METADATA_VERSION = "VERSION";
@@ -83,6 +87,16 @@ public class ManifestHelper {
      */
     public static boolean getDebugEnabled(Context context) {
         return getMetaDataBoolean(context, METADATA_QUERY_LOG);
+    }
+    
+    /**
+     * Grabs the preinstalled database file name (in assets) from the manifest.
+     *
+     * @param context  the {@link android.content.Context} of the Android application
+     * @return the value for the {@value #METADATA_PREINSTALLED_DATABASE} meta data in the AndroidManifest
+     */
+    public static String getPreinstalledDatabaseName(Context context) {
+    	return getMetaDataString(context, METADATA_PREINSTALLED_DATABASE);
     }
 
     private static String getMetaDataString(Context context, String name) {
